@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "assistentecontexto"
+version = "0.1.0"
+description = "Assistente LLM para conversar com Arquivos"
+authors = ["maellson <mqmaellson39@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ipykernel = "6.29.4"
+langchain = "0.1.16"
+langchain-community = "0.0.34"
+langchain-openai = "0.1.4"
+openai = "1.24.0"
+pypdf = "4.2.0"
+streamlit = "1.33.0"
+python-dotenv = "1.0.1"
+faiss-cpu = "1.8.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+black = "^24.10.0"
+flake8 = "^7.1.1"
+mypy = "^1.14.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
