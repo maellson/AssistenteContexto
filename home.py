@@ -5,8 +5,20 @@ import time
 
 from utils import criar_chain_conversa, FILES_PATH
 
+BRAVONIX_PATH = Path(__file__).parent / "images" / \
+    "Logo-Bravonix-Branca.png"
+
+ROBOT_EMOJI_PATH = Path(__file__).parent / "images" / \
+    "robot.png"  # Caminho correto usando Path
+ICON_EMOJI_PATH = Path(__file__).parent / "images" / \
+    "Icon-Bravonix.png"
+
+st.set_page_config(layout="wide", page_title="Assistente",
+                   page_icon=str(ICON_EMOJI_PATH), initial_sidebar_state="expanded")
+
 
 def sidebar():
+    st.image(str(BRAVONIX_PATH), width=200)
     # Carregador de arquivos para adicionar PDFs
     uploaded_pdfs = st.file_uploader(
         'Adicione seus arquivos pdf',
@@ -41,18 +53,14 @@ def sidebar():
             st.rerun()  # Reinicia a sessão
 
 
-ROBOT_EMOJI_PATH = Path(__file__).parent / "images" / \
-    "robot.png"  # Caminho correto usando Path
-
-
 def chat_window():
     col1, col2 = st.columns([2, 8])
     with col1:
         # Exibe a imagem do emoji no título
-        # Convertendo Path para string
-        st.image(str(ROBOT_EMOJI_PATH), width=150)
+        st.image(str(ICON_EMOJI_PATH), width=100)
     with col2:
-        st.header('Bem-vindo ao assistente de processamento de PDF', divider=True)
+        st.header('Bem-vindo ao assistente de Contexto da Bravonix',
+                  divider="violet")
     # st.write("Adicione um arquivo PDF para começar")
     if not 'chain' in st.session_state:  # Verifica se a sessão está ativa
         # Exibe um erro se não houver arquivo PDF
